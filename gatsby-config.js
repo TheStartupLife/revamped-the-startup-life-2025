@@ -3,8 +3,13 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `revamped-the-startup-life-2025`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `The Startup Life`,
+    siteUrl: `https://www.thestartuplife.io`,
   },
-  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-google-gtag"]
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+  ],
 };

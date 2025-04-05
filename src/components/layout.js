@@ -1,31 +1,44 @@
-// src/components/Layout.js
+// src/components/layout.js
 import React from "react";
-import { Helmet } from "react-helmet";
 import Header from "./header";
 import Footer from "./footer";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: "Rajdhani", sans-serif;
+    background-color: #fff;
+    color: #000;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    height: auto;
+  }
+`;
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Helmet>
-        <title>The Startup Life</title>
-        <link
-          rel="stylesheet"
-          href="/assets/css/theme.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/assets/vendors/font-awesome/css/font-awesome.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/assets/vendors/liquid-icon/liquid-icon.min.css"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Helmet>
-
+      <GlobalStyle />
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   );

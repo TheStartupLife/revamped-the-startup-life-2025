@@ -1,97 +1,167 @@
+// src/components/Hero.js
 import React from "react";
+import styled from "styled-components";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
+// Styled Hero Section
+const HeroSection = styled.section`
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: url("/assets/demo/bg/bg-31-compressed.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+
+  h1 {
+    font-size: 5.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
+  }
+
+  h6 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.85rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+
+  a.btn {
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border: 2px solid white;
+    border-radius: 999px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+
+    &:hover {
+      background: #FFDE59;
+      color: black;
+      border: 2px solid #FFDE59;
+    }
+  }
+`;
+
+
+// Styled Logo Carousel Section
+const LogoCarouselWrapper = styled.div`
+  background: #FFDE59;
+  padding: 2rem 0;
+  max-width: 100vw;
+  overflow-x: hidden;
+
+
+  .slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+`;
+
+// Carousel Component
+const ClientLogos = () => {
+  const logoSettings = {
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+    responsive: [
+      { breakpoint: 992, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+    ],
+  };
+
+  const logos = [
+    "ff-logo.png",
+    "xiexie logo special - 2.jpg",
+    "cfa-logo-color.png",
+    "Seal_of_Miami,_Florida (1).svg",
+    "medicalbae-logo.png",
+    "cfsf-logo.png",
+    "PrettyPenny.png",
+  ];
+
+  return (
+    <LogoCarouselWrapper>
+      <Slider {...logoSettings}>
+        {logos.map((logo, idx) => (
+          <div key={idx}>
+            <img src={`/assets/demo/clients/${logo}`} alt={`Client ${idx}`} />
+          </div>
+        ))}
+      </Slider>
+    </LogoCarouselWrapper>
+  );
+};
+
+// Exported Component
 const Hero = () => {
   return (
-    <section
-      className="vc_row fullheight d-flex flex-wrap align-items-end mb-80"
-      data-parallax="true"
-      data-parallax-options='{"parallaxBG":true}'
-      data-slideshow-bg="true"
-      data-slideshow-options='{"delay":3000,"effect":"scale","opacity":27,"imageArray":["/assets/demo/bg/bg-31-compressed.png","/assets/demo/bg/bg-41-compressed.png"]}'
-    >
-      <span className="row-bg-loader">
-        <span className="row-bg-loader-inner"></span>
-      </span>
-
-      <div className="container">
-        <div className="row">
-          <div
-            className="lqd-column col-md-10 col-md-offset-1 text-center py-7"
-            data-custom-animations="true"
-            data-ca-options='{"triggerHandler":"inview","animationTarget":"all-childs","duration":"1200","delay":"150","easing":"easeOutQuint","direction":"forward","initValues":{"translateY":31,"translateZ":-108,"opacity":0},"animations":{"translateY":0,"translateZ":0,"opacity":1}}'
-          >
-            <header className="fancy-title">
-              <h6 className="text-uppercase font-weight-normal ltr-sp-2 text-white mb-5 mt-5">
-                WE LOVE CREATING
-              </h6>
-              <h2 className="text-white lh-15 mb-4">
-                <span className="font-size-3-3x lh-1">digital ideas</span>
-              </h2>
-
-              <div className="row">
-                <div className="lqd-column col-md-8 col-md-offset-2">
-                  <p className="text-white font-size-24 mb-1">
-                    The Startup Life is a thriving creative digital media & software development consultancy based in Miami, FL.
-                  </p>
-                </div>
-              </div>
-            </header>
-
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="#about"
-              className="btn btn-solid text-uppercase circle btn-bordered border-thin font-size-16 font-weight-bold ltr-sp-05 px-2 bg-hover-white text-hover-black mb-2"
-              data-localscroll="true"
-              data-localscroll-options='{"scrollBelowSection":true}'
-            >
-              <span>
-                <span className="btn-txt">Learn More</span>
-              </span>
-            </a>
-          </div>
+    <>
+      <HeroSection>
+        <div style={{ width: "100%" }}>
+          <h6>WE LOVE CREATING</h6>
+          <h1>Digital Ideas</h1>
+          <p>
+            The Startup Life is a thriving creative digital media & software
+            development consultancy based in Miami, FL.
+          </p>
+          <a href="#" className="btn">
+            Learn More
+          </a>
         </div>
-      </div>
+      </HeroSection>
 
-      <div className="bg-primary col-xs-12 px-0 py-4">
-        <div className="container">
-          <div className="row">
-            <div className="lqd-column col-md-12">
-              <div className="carousel-container carousel-nav-left carousel-nav-md carousel-dots-style1">
-                <div
-                  className="carousel-items row"
-                  data-lqd-flickity='{"cellAlign":"left","prevNextButtons":false,"buttonsAppendTo":"self","pageDots":false,"groupCells":false,"wrapAround":true,"autoPlay":3000,"pauseAutoPlayOnHover":false}'
-                >
-                  {[
-                    "ff-logo.png",
-                    "xiexie logo special - 2.jpg",
-                    "cfa-logo-color.png",
-                    "Seal_of_Miami,_Florida (1).svg",
-                    "medicalbae-logo.png",
-                    "cfsf-logo.png",
-                    "PrettyPenny.png",
-                  ].map((filename, index) => (
-                    <div
-                      className="lqd-column carousel-item col-md-2 col-sm-3 col-xs-4"
-                      key={index}
-                    >
-                      <figure className="text-center opacity-02 reset-opacity-onhover">
-                        <img
-                          loading="eager"
-                          src={`/assets/demo/clients/${filename}`}
-                          className="w-70"
-                          alt={`Client-${index}`}
-                        />
-                      </figure>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <ClientLogos />
+    </>
   );
 };
 

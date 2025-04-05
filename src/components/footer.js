@@ -1,41 +1,74 @@
+// src/components/footer.js
 import React from "react";
+import styled from "styled-components";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaMedium, FaYoutube } from "react-icons/fa";
+import { Link } from "gatsby";
+
+const FooterWrapper = styled.footer`
+  background: #fff;
+  color: black;
+  padding: 3rem 1rem;
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+`;
+
+const Logo = styled.img`
+  height: 4rem;
+`;
+
+const Copyright = styled.p`
+  font-size: 0.9rem;
+  color: black;
+`;
+
+const SocialIcons = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+
+  a {
+    color: black;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #FFDE59;
+    }
+  }
+`;
 
 const Footer = () => {
   return (
-    <footer className="main-footer pt-90">
-      <section className="bt-fade-white-015 pt-100 pb-60">
-        <div className="container">
-          <div className="row d-flex flex-wrap align-items-center">
-            {/* Logo */}
-            <div className="lqd-column col-md-4 col-xs-6">
-              <figure className="mb-60 mb-md-0">
-                <img src="/assets/img/Logos/Logo-trans-bg-tsl.png" width="202" alt="The Startup Life Logo" />
-              </figure>
-            </div>
-
-            {/* Copyright */}
-            <div className="lqd-column col-md-4 col-xs-6 text-right text-md-center">
-              <p className="font-size-14 mb-60 mb-md-0">
-                © {new Date().getFullYear()}{" "}
-                <span className="font-weight-bold text-secondary">The Startup Life LLC</span>. All Rights Reserved.
-              </p>
-            </div>
-
-            {/* Social Icons */}
-            <div className="lqd-column col-md-4 col-xs-12 text-center text-md-right">
-              <ul className="social-icon branded-text social-icon-md">
-                <li><a href="https://facebook.com/startuplifellc" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/startuplifellc" target="_blank" rel="noopener noreferrer"><i className="fa fa-twitter"></i></a></li>
-                <li><a href="https://instagram.com/startuplifellc" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a></li>
-                <li><a href="https://linkedin.com/company/thestartuplife" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin"></i></a></li>
-                <li><a href="https://medium.com/@thestartuplife" target="_blank" rel="noopener noreferrer"><i className="fa fa-medium"></i></a></li>
-                <li><a href="https://youtube.com/thestartuplife" target="_blank" rel="noopener noreferrer"><i className="fa fa-youtube"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </footer>
+    <FooterWrapper>
+      <Container>
+        <Link to="/">
+          <Logo src="/assets/img/Logos/Logo-trans-bg-tsl.png" alt="The Startup Life logo" />
+        </Link>
+        <Copyright>© 2025 The Startup Life LLC. All rights reserved.</Copyright>
+        <SocialIcons>
+          <li><a href="https://facebook.com/startuplifellc" target="_blank" rel="noopener noreferrer"><FaFacebook /></a></li>
+          <li><a href="https://twitter.com/startuplifellc" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
+          <li><a href="https://instagram.com/startuplifellc" target="_blank" rel="noopener noreferrer"><FaInstagram /></a></li>
+          <li><a href="https://linkedin.com/company/thestartuplife" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a></li>
+          <li><a href="https://medium.com/@thestartuplife" target="_blank" rel="noopener noreferrer"><FaMedium /></a></li>
+          <li><a href="https://youtube.com/thestartuplife" target="_blank" rel="noopener noreferrer"><FaYoutube /></a></li>
+        </SocialIcons>
+      </Container>
+    </FooterWrapper>
   );
 };
 

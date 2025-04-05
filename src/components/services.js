@@ -1,102 +1,130 @@
+// src/components/services.js
 import React from "react";
+import styled from "styled-components";
+
+const ServicesSection = styled.section`
+  padding: 5rem 1rem;
+  background-color: #f8f9fa;
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const Grid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+`;
+
+const Card = styled.div`
+  flex: 1 1 320px;
+  max-width: 360px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+
+    &:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
+
+  h6 {
+    font-size: 0.9rem;
+    color: black;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: #444;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    list-style: disc;
+
+    li {
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+  }
+`;
+
+const ServiceCard = ({ number, title, description, items }) => (
+  <Card>
+    <h6>{number}</h6>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <ul>
+      {items.map((item, i) => (
+        <li key={i}>{item}</li>
+      ))}
+    </ul>
+  </Card>
+);
 
 const Services = () => {
   return (
-    <section id="services" className="vc_row pt-80 pb-80">
-      <div className="container">
-        <div className="row">
-          {/* Column 1 - Branded eCommerce */}
-          <div className="lqd-column col-md-3 col-sm-8">
-            <div
-              className="lqd-parallax"
-              data-parallax="true"
-              data-parallax-from='{"translateY":100}'
-              data-parallax-to='{"translateY":-170}'
-              data-parallax-options='{"easing":"linear", "overflowHidden": false}'
-              data-custom-animations="true"
-              data-ca-options='{"triggerHandler":"inview","animationTarget":"all-childs","duration":"1200","delay":"150","easing":"easeOutQuint","direction":"forward","initValues":{"translateY":35,"opacity":0},"animations":{"translateY":0,"opacity":1}}'
-            >
-              <header className="fancy-title">
-                <h6 className="font-size-12 text-secondary font-weight-bold ltr-sp-025">01</h6>
-                <h2 className="mb-25">Branded eCommerce</h2>
-                <p className="mb-45">
-                  Our eCommerce design starts and ends with a best-in-class experience strategy that builds brands and drives transactions.
-                </p>
-              </header>
+    <ServicesSection id="services">
+      <Container>
+        <Grid>
+          <ServiceCard
+            number="01"
+            title="Product Strategy & Roadmapping"
+            description="We help you turn vision into actionable sprints."
+            items={[
+              "Feature definition & prioritization",
+              "Epic and user story mapping",
+              "Milestone-driven delivery",
+              "Launch planning & success metrics",
+            ]}
+          />
+          <ServiceCard
+            number="02"
+            title="Technical Spec Development"
+            description="Translate ideas into clear, buildable specs for dev teams."
+            items={[
+              "PRD, flowcharts, and wireframes",
+              "System architecture docs",
+              "API request/response mapping",
+              "Third-party integration plans",
+            ]}
+          />
+          <ServiceCard
+            number="03"
+            title="Agile Project Execution"
+            description="We lead cross-functional teams with clarity and velocity."
+            items={[
+              "Scrum & sprint facilitation",
+              "Backlog grooming & velocity tracking",
+              "Weekly standups & demos",
+              "Risk mitigation & team unblockers",
+            ]}
+          />
+        </Grid>
+      </Container>
+    </ServicesSection>
 
-              <ul className="reset-ul font-size-11 lh-15 font-weight-bold ltr-sp-1 text-dark">
-                <li className="mb-15">BRAND EXPERIENCE</li>
-                <li className="mb-15">PLATFORM & POSITIONING</li>
-                <li className="mb-15">TRENDS & INSIGHTS</li>
-                <li className="mb-15">MARKETING STRATEGY</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Column 2 - Digital Experience */}
-          <div className="lqd-column col-md-4 col-sm-8 col-md-offset-1">
-            <div className="row">
-              <div className="lqd-column col-md-10 col-md-offset-1">
-                <div
-                  className="lqd-parallax"
-                  data-parallax="true"
-                  data-parallax-from='{"translateY":100}'
-                  data-parallax-to='{"translateY":-100}'
-                  data-parallax-options='{"easing":"linear", "overflowHidden": false}'
-                  data-custom-animations="true"
-                  data-ca-options='{"triggerHandler":"inview","animationTarget":"all-childs","duration":"1200","delay":"150","easing":"easeOutQuint","direction":"forward","initValues":{"translateY":35,"opacity":0},"animations":{"translateY":0,"opacity":1}}'
-                >
-                  <header className="fancy-title">
-                    <h6 className="font-size-12 text-secondary font-weight-bold ltr-sp-025">02</h6>
-                    <h2 className="mb-25">Digital Experience</h2>
-                    <p className="mb-45">
-                      Through a deep understanding of our audience’s makeup and motivations, we design digital experiences that connect with people — all while providing you with the software solutions your business needs to optimize performance and scale.
-                    </p>
-                  </header>
-
-                  <ul className="reset-ul font-size-11 lh-15 font-weight-bold ltr-sp-1 text-dark">
-                    <li className="mb-15">WEB DESIGN</li>
-                    <li className="mb-15">MOBILE APP DESIGN</li>
-                    <li className="mb-15">ALEXA SKILL</li>
-                    <li className="mb-15">UX / UI DESIGN</li>
-                    <li className="mb-15">AWS CLOUD MIGRATION</li>
-                    <li className="mb-15">DASHBOARD & TOOL</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Column 3 - Branding Strategy */}
-          <div className="lqd-column col-md-3 col-sm-8 col-md-offset-1">
-            <div
-              className="lqd-parallax"
-              data-parallax="true"
-              data-parallax-from='{"translateY":100}'
-              data-parallax-to='{"translateY":-29}'
-              data-parallax-options='{"easing":"linear", "overflowHidden": false}'
-              data-custom-animations="true"
-              data-ca-options='{"triggerHandler":"inview","animationTarget":"all-childs","duration":"1200","delay":"150","easing":"easeOutQuint","direction":"forward","initValues":{"translateY":35,"opacity":0},"animations":{"translateY":0,"opacity":1}}'
-            >
-              <header className="fancy-title">
-                <h6 className="font-size-12 text-secondary font-weight-bold ltr-sp-025">03</h6>
-                <h2 className="mb-25">Branding Strategy</h2>
-                <p className="mb-45">
-                  We build and activate brands through cultural insight, strategic vision, and the power of emotion across every element of its expression.
-                </p>
-              </header>
-
-              <ul className="reset-ul font-size-11 lh-15 font-weight-bold ltr-sp-1 text-dark">
-                <li className="mb-15">COMMUNICATIONS</li>
-                <li className="mb-15">LOGO & IDENTITY</li>
-                <li className="mb-15">CONTENT MANAGEMENT</li>
-                <li className="mb-15">SYSTEM & GUIDES</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 };
 
