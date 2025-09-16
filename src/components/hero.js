@@ -14,7 +14,7 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 0rem 2rem;
   text-align: center;
   color: white;
 
@@ -75,14 +75,12 @@ const HeroSection = styled.section`
   }
 `;
 
-
 // Styled Logo Carousel Section
 const LogoCarouselWrapper = styled.div`
   background: #FFDE59;
   padding: 2rem 0;
   max-width: 100vw;
   overflow-x: hidden;
-
 
   .slick-slide {
     display: flex !important;
@@ -142,24 +140,26 @@ const ClientLogos = () => {
   );
 };
 
-// Exported Component
 const Hero = () => {
   return (
     <>
       <HeroSection>
         <div style={{ width: "100%" }}>
-          <h6>WE LOVE CREATING</h6>
-          <h1>Digital Ideas</h1>
+          <h6>CURRENTLY BUILDING</h6>
+          <h1>Venture-Scale Projects</h1>
           <p>
-            The Startup Life is a thriving creative digital media & software
-            development consultancy based in Miami, FL.
+            The Startup Life develops and scales innovative ventures across fintech,
+            publishing, telehealth, civic tech, and retail. We’re focused on building
+            the next generation of products — and we welcome partners who can unlock
+            distribution, capital, or expertise to accelerate growth.
           </p>
-          <a href="#" className="btn">
-            Learn More
-          </a>
+
+          <div style={{ display: "inline-flex", gap: "12px", flexWrap: "wrap" }}>
+            <a href="/projects" className="btn">Explore Projects</a>
+            <a href="/partner" className="btn">Partner With Us</a>
+          </div>
         </div>
       </HeroSection>
-
       <ClientLogos />
     </>
   );

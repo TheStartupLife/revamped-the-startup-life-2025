@@ -1,21 +1,20 @@
-// src/pages/index.js
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
+import Hero from "../components/Hero";
+import PortfolioIntro from "../components/PortfolioIntro";
+import FocusAreas from "../components/FocusAreas";
+import ProjectsShowcase from "../components/ProjectsShowcase";
+import ClosingCTA from "../components/ClosingCTA";
 
-import Hero from "../components/hero";
-import About from "../components/about";
-import OurWork from "../components/ourwork";
-import Contact from "../components/contact";
-import Services from "../components/services";
 
 export default function HomePage() {
   return (
-    <Layout>
+    <Layout hero={true}>
       <Hero />
-      <About />
-      <Services />
-      <OurWork />
-      <Contact />
+      <PortfolioIntro />
+      <FocusAreas />
+      <ProjectsShowcase />
+      <ClosingCTA />
     </Layout>
   );
 }
