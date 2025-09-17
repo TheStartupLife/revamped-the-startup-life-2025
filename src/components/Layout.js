@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     margin: 0;
     font-family: "Rajdhani", sans-serif;
-    background-color: #fff;
+    background-color: #f6f7fb;
     color: #000;
   }
 

@@ -18,7 +18,7 @@ const Mainbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #1f2937;
   flex-wrap: wrap;
 `;
 

@@ -8,7 +8,7 @@ const Wrap = styled.main`
 `;
 
 const HeaderBand = styled.section`
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  background: #f6f7fb;
   border-bottom: 1px solid #e5e7eb;
   padding: clamp(56px, 7vw, 88px) 20px;
 
