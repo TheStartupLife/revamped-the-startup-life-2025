@@ -87,10 +87,10 @@ export const projects = [
     links: [{ label: "Concept", href: "https://SipNSwoon.com" }],
   },
   {
-  slug: "horus-anaya",
-  name: "Horus and Anaya: Guardians of the Grid",
+  slug: "tech-guild",
+  name: "TechGuildHQ.com",
   oneLiner:
-    "Children’s book series blending mythology with STEM and digital literacy—built as multi-format IP.",
+    "A children’s book series that makes STEM and digital literacy fun, taking kids 8+ on adventures through the innovations that power our world, —built as multi-format IP.",
   status: "Building",
   currentFocus:
     "Outlining book arcs and piloting educational tie-ins around coding, robotics, and digital literacy.",
@@ -100,6 +100,6 @@ export const projects = [
     "STEM education sponsors",
     "Merchandising/licensing collaborators",
   ],
-  links: [{ label: "Overview", href: "" }],
+  links: [{ label: "Overview", href: "https://TechGuildHQ.com" }],
 },
 ];
