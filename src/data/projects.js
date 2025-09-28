@@ -34,9 +34,9 @@ export const projects = [
     slug: "stealth-project",
     name: "Stealth Project",
     oneLiner:
-      "(Working title) Product discovery + community concept repurposing my bootcamp codebase.",
+      "Hands-on career shadowing for teens, powered by parents and schools",
     status: "Exploring",
-    currentFocus: "Concept validation and early prototype.",
+    currentFocus: "Validating interest, piloting with community partners, and developing an early prototype.",
     seeking: ["Full-stack co-builder", "Community lead", "Pilot sponsor"],
     links: [{ label: "Concept", href: "" }],
   },
@@ -75,7 +75,7 @@ export const projects = [
     name: "SipNSwoon.com",
     oneLiner:
       "Romance-only bookstore concept—starting as a premium subscription/preorder box and pop-ups.",
-    status: "Building",
+    status: "Live",
     currentFocus:
       "Supplier/licensing relationships, box pilot, venue partnerships.",
     seeking: [
