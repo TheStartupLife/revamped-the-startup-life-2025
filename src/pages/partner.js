@@ -82,7 +82,7 @@ export default function PartnerPage() {
             <li><strong>Beta/launch partners</strong> who want to test with real users.</li>
             <li><strong>Brands &amp; service providers</strong> (e.g., beauty/retail for PrettyPenny; creators for MedicalBae).</li>
             <li><strong>Financial education providers</strong> interested in curriculum/content collabs.</li>
-            <li><strong>Funders &amp; sponsors</strong> (e.g., Horus &amp; Anaya activations, community initiatives).</li>
+            <li><strong>Funders &amp; sponsors</strong> (e.g., TechGuild activations, community initiatives).</li>
             <li><strong>Influencers/creators</strong> who’d lend audience in exchange for aligned upside.</li>
           </ul>
         </Section>
@@ -94,7 +94,7 @@ export default function PartnerPage() {
           <ul>
             <li>Co-created content series (editorial, short-form video, podcasts, newsletters).</li>
             <li>Beta cohorts with shared metrics (sign-ups, retention, NPS, email capture).</li>
-            <li>Sponsored launches, pop-ups, or school/library events (e.g., Horus &amp; Anaya + STEM).</li>
+            <li>Sponsored launches, pop-ups, or school/library events (e.g., TechGuild + STEM).</li>
             <li>Limited-edition drops and co-branded releases (e.g., MedicalBae, SipNSwoon).</li>
           </ul>
           <Note>We keep scopes tight, measure clearly, and scale with proof—never for vanity.</Note>
@@ -132,7 +132,7 @@ export default function PartnerPage() {
 
             <label>
               Ventures you’re most interested in (optional)
-              <input name="ventures" placeholder="PrettyPenny, Annakiyah, Horus & Anaya, MedicalBae, Haitians in Tech, SipNSwoon…" />
+              <input name="ventures" placeholder="PrettyPenny, Annakiyah, TechGuild, MedicalBae, Haitians in Tech, SipNSwoon…" />
             </label>
 
             <label>

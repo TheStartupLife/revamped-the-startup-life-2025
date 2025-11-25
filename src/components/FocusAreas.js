@@ -78,7 +78,7 @@ const AREAS = [
       "Original worlds and formats designed for multi-channel distribution.",
     examples: [
       { label: "Annakiyah.com", href: "/projects#annakiyah" },
-      { label: "Horus & Anaya", href: "/projects#horus-anaya" },
+      { label: "TechGuildHQ.com", href: "/projects#tech-guild" },
     ],
   },
   {
