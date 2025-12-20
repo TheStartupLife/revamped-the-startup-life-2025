@@ -1,189 +1,129 @@
 // src/components/ProjectsShowcase.js
 import React from "react";
 import styled from "styled-components";
-import { projects } from "../data/projects"; // ← single source of truth
+import { projects } from "../data/projects";
 
 const Wrap = styled.section`
   background: #ffffff;
-  padding: clamp(80px, 10vw, 120px) 20px;
+  padding: 6rem 5%;
+  border-bottom: 1px solid #000;
 `;
 
-const Inner = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-`;
-
-const Title = styled.h2`
-  margin: 0 0 10px;
-  font-size: clamp(24px, 3.2vw, 32px);
-`;
-
-const Sub = styled.p`
-  color: #4b5563;
-  margin: 0 0 28px;
-  max-width: 70ch;
-  line-height: 1.7;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 18px;
-`;
-
-const Card = styled.article`
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.03);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
-  }
-
-  &:focus-within {
-    outline: 2px solid #111827;
-    outline-offset: 2px;
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-
-  h3 {
+const SectionHeader = styled.div`
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1rem;
+  
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
     margin: 0;
-    font-size: 20px;
-  }
-
-  p {
-    margin: 8px 0 12px;
-    color: #334155;
-    line-height: 1.6;
   }
 `;
 
-/* Transient prop so it doesn't leak to the DOM */
-const Badge = styled.span`
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 9px;
-  border-radius: 999px;
-  background: ${({ $tone }) =>
-    $tone === "live" ? "#dcfce7" :          /* green-ish */
-    $tone === "building" ? "#fef3c7" :      /* amber */
-    $tone === "exploring" ? "#e0e7ff" :     /* indigo tint */
-    "#f1f5f9"};                             /* default gray */
-  color: #111827;
-  border: 1px solid rgba(17, 24, 39, 0.08);
+const Table = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #000;
 `;
 
-const Btn = styled.a`
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  border-radius: 999px;
-  padding: 9px 14px;
-  border: 2px solid #111827;
-  color: #111827;
-  transition: all 0.18s ease;
+const Row = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  transition: background 0.2s ease;
 
   &:hover {
-    background: #111827;
-    color: #ffde59;
+    background: #f9f9f9;
   }
 
-  &:focus-visible {
-    outline: 2px solid #111827;
-    outline-offset: 3px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #000;
+  }
+
+  .sector, .status {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    color: #444;
+  }
+
+  .link {
+    text-align: right;
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+      border-bottom: 1px solid #000;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+      padding-bottom: 2px;
+      
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
   }
 `;
 
-/* ---------- helpers ---------- */
-const toTone = (status = "") => {
-  const s = status.toLowerCase();
-  if (s.includes("live")) return "live";
-  if (s.includes("build")) return "building";
-  if (s.includes("explor")) return "exploring";
-  return "open"; // "Open to Pilots" or anything else
+const getSector = (slug) => {
+  const map = {
+    "annakiyah": "Media & IP",
+    "prettypenny": "Fintech",
+    "stealth-project": "EdTech",
+    "haitians-in-tech": "Civic Tech",
+    "medicalbae": "Commerce",
+    "sipnswoon": "Commerce",
+    "tech-guild": "EdTech"
+  };
+  return map[slug] || "Venture";
 };
 
-const toLabel = (status = "") => {
-  const s = status.toLowerCase();
-  if (s.includes("live")) return "Live";
-  if (s.includes("build")) return "Building";
-  if (s.includes("explor")) return "Exploring";
-  if (s.includes("pilot")) return "Open to Pilots";
-  return status || "Status";
-};
-
-const isSafeUrl = (href = "") => {
-  const u = href.trim();
-  return u.startsWith("/") || /^https?:\/\//i.test(u);
-};
-
-const primaryLink = (links = []) => {
-  if (!Array.isArray(links)) return null;
-  const first = links.find(l => l && typeof l.href === "string" && isSafeUrl(l.href));
-  return first || null;
-};
-
-/* ---------- component ---------- */
 export default function ProjectsShowcase() {
-  // If you want to show a subset on the homepage, you can slice here:
-  // const visibleProjects = projects.slice(0, 6);
-  const visibleProjects = projects;
-
   return (
-    <Wrap aria-labelledby="projects-motion">
-      <Inner>
-        <Title id="projects-motion">Projects in Motion</Title>
-        <Sub>
-          A snapshot of ventures at different stages—from early exploration to active scaling.
-        </Sub>
+    <Wrap>
+      <SectionHeader>
+        <h2>Active Ventures</h2>
+      </SectionHeader>
 
-        <Grid>
-          {visibleProjects.map((p) => {
-            const tone = toTone(p.status);
-            const statusLabel = toLabel(p.status);
-            const link = primaryLink(p.links);
+      <Table>
+        {projects.map((p) => {
+          const sector = getSector(p.slug);
+          const link = p.links && p.links[0]; // Simplified link logic
 
-            return (
-              <Card key={p.slug || p.name} tabIndex={0}>
-                <header>
-                  <Badge $tone={tone} aria-label={`Project status: ${statusLabel}`}>
-                    {statusLabel}
-                  </Badge>
-                  <h3>{p.name}</h3>
-                </header>
-
-                {/* Use the one-liner from the shared data file */}
-                {!!p.oneLiner && <p>{p.oneLiner}</p>}
-
-                {/* Button only if we have a link */}
-                {link && (
-                  <Btn
-                    href={link.href}
-                    aria-label={`${p.name} – ${link.label}`}
-                    target={/^https?:\/\//i.test(link.href) ? "_blank" : undefined}
-                    rel={/^https?:\/\//i.test(link.href) ? "noopener noreferrer" : undefined}
-                  >
-                    {link.label}
-                  </Btn>
+          return (
+            <Row key={p.slug}>
+              <div className="name">{p.name}</div>
+              <div className="sector">{sector}</div>
+              <div className="status">{p.status}</div>
+              <div className="link">
+                {link && link.href && (
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    Details &rarr;
+                  </a>
                 )}
-              </Card>
-            );
-          })}
-        </Grid>
-      </Inner>
+              </div>
+            </Row>
+          );
+        })}
+      </Table>
     </Wrap>
   );
 }

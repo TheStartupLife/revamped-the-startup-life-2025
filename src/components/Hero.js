@@ -1,167 +1,81 @@
 // src/components/Hero.js
 import React from "react";
 import styled from "styled-components";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 // Styled Hero Section
 const HeroSection = styled.section`
-  min-height: 100vh;
+  min-height: 80vh;
   max-width: 100vw;
   overflow-x: hidden;
-  background: url("/assets/demo/bg/bg-31-compressed.png") center/cover no-repeat;
+  background-color: #f8f8f8; /* Placeholder for new aesthetic */
+  color: #111;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0rem 2rem;
-  text-align: center;
-  color: white;
+  padding: 0 5%;
+  text-align: left;
+  border-bottom: 1px solid #000;
 
   h1 {
-    font-size: 5.5rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif; /* Assuming Inter is available or fallback */
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
 
     @media (max-width: 768px) {
-      font-size: 2.5rem;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 2rem;
-    }
-  }
-
-  h6 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1rem;
-
-    @media (max-width: 480px) {
-      font-size: 0.85rem;
+      font-size: 3rem;
     }
   }
 
   p {
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    color: #444;
+  }
 
-    @media (max-width: 768px) {
-      font-size: 1.1rem;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 1rem;
-    }
+  .actions {
+    display: flex;
+    gap: 1.5rem;
   }
 
   a.btn {
     text-decoration: none;
-    padding: 0.75rem 2rem;
-    border: 2px solid white;
-    border-radius: 999px;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+    font-family: 'Roboto Mono', monospace;
     font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
 
     &:hover {
-      background: #FFDE59;
-      color: black;
-      border: 2px solid #FFDE59;
+      background: #000;
+      color: #fff;
     }
   }
 `;
-
-// Styled Logo Carousel Section
-const LogoCarouselWrapper = styled.div`
-  background: #FFDE59;
-  padding: 2rem 0;
-  max-width: 100vw;
-  overflow-x: hidden;
-
-  .slick-slide {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-  }
-
-  img {
-    max-height: 60px;
-    width: auto;
-    object-fit: contain;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-`;
-
-// Carousel Component
-const ClientLogos = () => {
-  const logoSettings = {
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    arrows: false,
-    responsive: [
-      { breakpoint: 992, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
-    ],
-  };
-
-  const logos = [
-    "ff-logo.png",
-    "xiexie logo special - 2.jpg",
-    "cfa-logo-color.png",
-    "Seal_of_Miami,_Florida (1).svg",
-    "medicalbae-logo.png",
-    "cfsf-logo.png",
-    "PrettyPenny.png",
-  ];
-
-  return (
-    <LogoCarouselWrapper>
-      <Slider {...logoSettings}>
-        {logos.map((logo, idx) => (
-          <div key={idx}>
-            <img src={`/assets/demo/clients/${logo}`} alt={`Client ${idx}`} />
-          </div>
-        ))}
-      </Slider>
-    </LogoCarouselWrapper>
-  );
-};
 
 const Hero = () => {
   return (
-    <>
-      <HeroSection>
-        <div style={{ width: "100%" }}>
-          <h6>CURRENTLY BUILDING</h6>
-          <h1>Venture-Scale Projects</h1>
-          <p>
-            The Startup Life develops and scales innovative ventures across fintech,
-            publishing, telehealth, civic tech, and retail. We’re focused on building
-            the next generation of products — and we welcome partners who can unlock
-            distribution, capital, or expertise to accelerate growth.
-          </p>
+    <HeroSection>
+      <div style={{ width: "100%", maxWidth: "1200px" }}>
+        <h1>Building Durable<br />Venture Architectures</h1>
+        <p>
+          We architect and scale high-value technology ventures through rigorous validation and strategic execution.
+        </p>
 
-          <div style={{ display: "inline-flex", gap: "12px", flexWrap: "wrap" }}>
-            <a href="/projects" className="btn">Explore Projects</a>
-            <a href="/partner" className="btn">Partner With Us</a>
-          </div>
+        <div className="actions">
+          <a href="/projects" className="btn">Our Ventures</a>
+          <a href="/partner" className="btn">Work With Us</a>
         </div>
-      </HeroSection>
-      <ClientLogos />
-    </>
+      </div>
+    </HeroSection>
   );
 };
 

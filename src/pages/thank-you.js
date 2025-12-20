@@ -7,46 +7,53 @@ const Wrap = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - var(--header-h, 88px));
+  min-height: calc(85vh - var(--header-h, 88px));
   padding: 40px 20px;
-  text-align: center;
-  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  background: #f8f8f8;
 `;
 
-const Inner = styled.div`
+const ContentBox = styled.div`
   max-width: 600px;
+  width: 100%;
+  padding: 3rem;
+  background: #fff;
+  border: 1px solid #000;
+  text-align: center;
 `;
 
 const Title = styled.h1`
-  font-size: clamp(28px, 4vw, 36px);
-  margin-bottom: 16px;
-  color: #111827;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #000;
+  letter-spacing: -0.02em;
 `;
 
 const Message = styled.p`
-  font-size: 18px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
   line-height: 1.6;
-  color: #374151;
-  margin-bottom: 32px;
+  color: #444;
+  margin-bottom: 2.5rem;
 `;
 
 const CTA = styled.a`
   display: inline-block;
   text-decoration: none;
-  padding: 0.9rem 1.6rem;
-  border: 2px solid #ffde59;
-  border-radius: 999px;
-  font-weight: 800;
+  padding: 1rem 2rem;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
   text-transform: uppercase;
   font-size: 0.9rem;
-  color: #111827;
-  background: #ffde59;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    transform: translateY(-2px);
-    background: #ffd944;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    color: #000;
   }
 `;
 
@@ -54,14 +61,14 @@ export default function ThankYouPage() {
   return (
     <Layout title="Thank You — The Startup Life">
       <Wrap>
-        <Inner>
+        <ContentBox>
           <Title>Thank You!</Title>
           <Message>
-            Your submission has been received. We’ll review it and follow up if there’s a strong fit for collaboration.  
+            Your submission has been received. We’ll review it and follow up if there’s a strong fit for collaboration.
             In the meantime, feel free to explore our ventures and ongoing projects.
           </Message>
           <CTA href="/">Back to Home</CTA>
-        </Inner>
+        </ContentBox>
       </Wrap>
     </Layout>
   );

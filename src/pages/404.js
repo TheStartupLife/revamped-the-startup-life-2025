@@ -7,51 +7,59 @@ const Wrap = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - var(--header-h, 88px));
+  min-height: calc(85vh - var(--header-h, 88px));
   padding: 40px 20px;
+  background: #f8f8f8;
+`;
+
+const ContentBox = styled.div`
+  max-width: 600px;
+  width: 100%;
+  padding: 3rem;
+  background: #fff;
+  border: 1px solid #000;
   text-align: center;
-  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
-`;
-
-const Inner = styled.div`
-  max-width: 680px;
-`;
-
-const Title = styled.h1`
-  margin: 0 0 10px;
-  font-size: clamp(28px, 5vw, 40px);
-  color: #0f172a;
 `;
 
 const Kicker = styled.p`
-  margin: 0 0 16px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #6b7280;
+  margin: 0 0 1rem;
+  font-family: 'Roboto Mono', monospace;
   font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #666;
+`;
+
+const Title = styled.h1`
+  margin: 0 0 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.1;
 `;
 
 const Message = styled.p`
-  margin: 0 auto 28px;
-  color: #374151;
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 70ch;
+  margin: 0 auto 2.5rem;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Roboto Mono', monospace;
+  max-width: 480px;
 `;
 
 const Gif = styled.img`
   display: block;
   width: 100%;
-  max-width: 360px;
-  margin: 0 auto 24px;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
+  max-width: 320px;
+  margin: 0 auto 2rem;
+  border: 1px solid #000;
+  /* Optional: grayscale filter to fit the vibe? */
+  /* filter: grayscale(100%); */
 `;
 
 const Actions = styled.div`
-  display: inline-flex;
-  gap: 12px;
+  display: flex;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 `;
@@ -59,43 +67,39 @@ const Actions = styled.div`
 const Button = styled(Link)`
   display: inline-block;
   text-decoration: none;
-  padding: 0.9rem 1.6rem;
-  border: 2px solid #111827;
-  border-radius: 999px;
-  font-weight: 800;
-  text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #000;
+  background: transparent;
+  color: #000;
+  font-family: 'Roboto Mono', monospace;
   font-size: 0.9rem;
-  color: #111827;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: #111827;
-    color: #ffde59;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(17, 24, 39, 0.1);
+    background: #000;
+    color: #fff;
   }
 
   &.primary {
-    background: #ffde59;
-    border-color: #ffde59;
+    background: #000;
+    color: #fff;
 
     &:hover {
-      background: #ffd944;
-      color: #111827;
+      background: #fff;
+      color: #000;
     }
   }
 `;
 
 export default function NotFoundPage() {
-  // Swap in any fun, lighthearted gif you like:
-  // (You can also remove <Gif /> entirely if you prefer a cleaner look.)
   const GIF_URL =
     "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejV5Yml2YXV4bDB1OTFuazUyd3J6d2liODR2NGFpa2Y3aDRvdjgyMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9J7tdYltWyXIY/giphy.gif";
 
   return (
     <Layout title="Page Not Found — The Startup Life">
       <Wrap>
-        <Inner>
+        <ContentBox>
           <Kicker>404 — Not Found</Kicker>
           <Title>Looks like this page took a detour.</Title>
           <Message>
@@ -110,7 +114,7 @@ export default function NotFoundPage() {
             <Button to="/projects">See Projects</Button>
             <Button to="/partner">Partner With Us</Button>
           </Actions>
-        </Inner>
+        </ContentBox>
       </Wrap>
     </Layout>
   );

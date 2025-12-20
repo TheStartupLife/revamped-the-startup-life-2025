@@ -4,61 +4,140 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 
 const Wrap = styled.main`
-  max-width: 900px;
-  margin: 0 auto;
-  padding: clamp(64px, 8vw, 96px) 20px;
-  color: #0f172a;
-
-  h1, h2 { margin: 0 0 12px 0; line-height: 1.2; }
-  p { color: #334155; line-height: 1.7; margin: 0 0 16px 0; }
-  ul { margin: 8px 0 16px 20px; color: #334155; line-height: 1.7; }
+  min-height: 80vh;
+  padding-bottom: 6rem;
+  font-family: 'Roboto Mono', monospace;
 `;
 
-const Kicker = styled.p`
-  margin-top: 6px;
-  color: #475569;
-  font-size: 18px;
-  line-height: 1.7;
+const HeaderBand = styled.div`
+  background: #f8f8f8;
+  border-bottom: 1px solid #000;
+  padding: 6rem 5%;
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+  }
+`;
+
+const ContentContainer = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 5%;
 `;
 
 const Section = styled.section`
-  &:not(:first-child) { margin-top: clamp(32px, 6vw, 56px); }
+  margin-bottom: 4rem;
+
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1.5rem 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    
+    li {
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+  }
 `;
 
-const Divider = styled.hr`
-  border: 0; height: 1px; background: #e5e7eb;
-  margin: clamp(28px, 5vw, 48px) 0;
-`;
-
-/* --- Form styles --- */
 const Form = styled.form`
-  margin-top: 12px; display: grid; gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 3rem;
 
-  label { display: grid; gap: 8px; font-weight: 600; color: #1f2937; }
-  input, select, textarea {
-    font: inherit; padding: 12px 14px; border: 1px solid #e5e7eb;
-    border-radius: 12px; background: #fff; color: #0f172a;
-    outline: none; transition: box-shadow .18s ease, border-color .18s ease;
+  @media (max-width: 600px) {
+    padding: 1.5rem;
   }
-  input:focus, select:focus, textarea:focus {
-    border-color: #111827; box-shadow: 0 0 0 3px rgba(17,24,39,.08);
+
+  h3 {
+    margin: 0 0 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.75rem;
   }
-  .row { display: grid; gap: 12px; }
-  @media (min-width: 720px) { .row.two { grid-template-columns: 1fr 1fr; } }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  input, textarea {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #000;
+      background: #fff;
+    }
+  }
 `;
 
-const Submit = styled.button`
-  margin-top: 2px; align-self: start; text-decoration: none;
-  padding: 0.9rem 1.6rem; border: 2px solid #ffde59; border-radius: 999px;
-  font-weight: 800; text-transform: uppercase; font-size: 0.9rem;
-  color: #111827; background: #ffde59;
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-  &:hover { transform: translateY(-2px); background: #ffd944; box-shadow: 0 10px 24px rgba(0,0,0,.08); }
-  &:focus-visible { outline: 2px solid #111827; outline-offset: 3px; }
-`;
+const SubmitBtn = styled.button`
+  align-self: flex-start;
+  padding: 1rem 2.5rem;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-const Note = styled.p`
-  margin: 6px 0 0; font-size: 0.9rem; color: #6b7280;
+  &:hover {
+    background: #fff;
+    color: #000;
+  }
 `;
 
 export default function PartnerPage() {
@@ -68,45 +147,41 @@ export default function PartnerPage() {
       description="Open, flexible partnerships: equity co-builds, licensing/collabs, pilots, sponsorships, and more."
     >
       <Wrap>
-        <h1>Partner With Us</h1>
-        <Kicker>
-          We’re open to collaborations that help tell powerful stories, launch thoughtful products,
-          and grow community-centered ventures. The ideas below are examples—not requirements.
-          If you see a way to build together, we want to hear it.
-        </Kicker>
+        <HeaderBand>
+          <h1>Partner With Us</h1>
+          <p>
+            We’re open to collaborations that help tell powerful stories, launch thoughtful products,
+            and grow community-centered ventures. The ideas below are examples—not requirements.
+            If you see a way to build together, we want to hear it.
+          </p>
+        </HeaderBand>
 
-        <Section>
-          <h2>Who Tends to Be a Fit</h2>
-          <ul>
-            <li><strong>Media/story partners</strong> across print, digital, audio, or video.</li>
-            <li><strong>Beta/launch partners</strong> who want to test with real users.</li>
-            <li><strong>Brands &amp; service providers</strong> (e.g., beauty/retail for PrettyPenny; creators for MedicalBae).</li>
-            <li><strong>Financial education providers</strong> interested in curriculum/content collabs.</li>
-            <li><strong>Funders &amp; sponsors</strong> (e.g., TechGuild activations, community initiatives).</li>
-            <li><strong>Influencers/creators</strong> who’d lend audience in exchange for aligned upside.</li>
-          </ul>
-        </Section>
+        <ContentContainer>
+          <Section>
+            <h2>Who Tends to Be a Fit</h2>
+            <ul>
+              <li><strong>Media/story partners</strong> across print, digital, audio, or video.</li>
+              <li><strong>Beta/launch partners</strong> who want to test with real users.</li>
+              <li><strong>Brands &amp; service providers</strong> (e.g., beauty/retail for PrettyPenny; creators for MedicalBae).</li>
+              <li><strong>Financial education providers</strong> interested in curriculum/content collabs.</li>
+              <li><strong>Funders &amp; sponsors</strong> (e.g., TechGuild activations, community initiatives).</li>
+              <li><strong>Influencers/creators</strong> who’d lend audience in exchange for aligned upside.</li>
+            </ul>
+          </Section>
 
-        <Divider />
+          <Section>
+            <h2>Illustrative Ways to Collaborate</h2>
+            <ul>
+              <li>Co-created content series (editorial, short-form video, podcasts, newsletters).</li>
+              <li>Beta cohorts with shared metrics (sign-ups, retention, NPS, email capture).</li>
+              <li>Sponsored launches, pop-ups, or school/library events (e.g., TechGuild + STEM).</li>
+              <li>Limited-edition drops and co-branded releases (e.g., MedicalBae, SipNSwoon).</li>
+            </ul>
+            <p style={{ marginTop: '1rem', fontStyle: 'italic', color: '#666' }}>
+              We keep scopes tight, measure clearly, and scale with proof—never for vanity.
+            </p>
+          </Section>
 
-        <Section>
-          <h2>Illustrative Ways to Collaborate (Not Exhaustive)</h2>
-          <ul>
-            <li>Co-created content series (editorial, short-form video, podcasts, newsletters).</li>
-            <li>Beta cohorts with shared metrics (sign-ups, retention, NPS, email capture).</li>
-            <li>Sponsored launches, pop-ups, or school/library events (e.g., TechGuild + STEM).</li>
-            <li>Limited-edition drops and co-branded releases (e.g., MedicalBae, SipNSwoon).</li>
-          </ul>
-          <Note>We keep scopes tight, measure clearly, and scale with proof—never for vanity.</Note>
-        </Section>
-
-        <Divider />
-
-        <Section>
-          <h2>Tell Us Your Idea</h2>
-          <p>Open proposals are welcome—no fixed format required.</p>
-
-          {/* Netlify-friendly form with honeypot and hidden form-name */}
           <Form
             name="partner"
             method="POST"
@@ -114,18 +189,21 @@ export default function PartnerPage() {
             netlify-honeypot="bot-field"
             action="/thank-you/"
           >
+            <h3>Tell Us Your Idea</h3>
+            <p style={{ marginBottom: '2rem', color: '#555' }}>Open proposals are welcome—no fixed format required.</p>
+
             <input type="hidden" name="form-name" value="partner" />
             <input type="hidden" name="page" value="/partner" />
             <p hidden>
               <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
             </p>
 
-            <div className="row two">
+            <div className="row">
               <label> Name <input name="name" required /> </label>
               <label> Email <input name="email" type="email" required /> </label>
             </div>
 
-            <div className="row two">
+            <div className="row">
               <label> Organization (optional) <input name="org" /> </label>
               <label> Links (site / LinkedIn) <input name="links" placeholder="https://..." /> </label>
             </div>
@@ -154,10 +232,9 @@ export default function PartnerPage() {
               />
             </label>
 
-            <Submit type="submit">Submit Partner Application</Submit>
-            <Note>We review every submission and follow up if there’s a clear fit.</Note>
+            <SubmitBtn type="submit">Submit Partner Application</SubmitBtn>
           </Form>
-        </Section>
+        </ContentContainer>
       </Wrap>
     </Layout>
   );

@@ -2,65 +2,73 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrap = styled.section`
-  background: linear-gradient(180deg, #1f2937 0%, #000000 100%);
-  color: #f9fafb;
-  padding: clamp(56px, 8vw, 96px) 20px;
+  background: #f8f8f8;
+  color: #000;
+  padding: 6rem 5%;
   text-align: center;
+  border-bottom: 1px solid #000;
+`;
+
+const ContentBox = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  border: 1px solid #000;
+  background: #fff;
 `;
 
 const Title = styled.h2`
-  margin: 0 0 10px;
-  font-size: clamp(26px, 3.4vw, 36px);
+  margin: 0 0 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
 `;
 
 const Sub = styled.p`
-  margin: 0 auto 20px;
-  max-width: 70ch;
-  color: #f9fafb;
-  line-height: 1.7;
+  margin: 0 auto 2.5rem;
+  max-width: 60ch;
+  color: #444;
+  line-height: 1.6;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
 `;
 
 const CTA = styled.a`
   display: inline-block;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
-  font-size: 0.95rem;
-  border-radius: 999px;
-  padding: 0.95rem 1.7rem;
-
-  background: #ffde59;
-  color: #111827;
-  border: 2px solid #ffde59;
-  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  font-family: 'Roboto Mono', monospace;
+  transition: all 0.2s ease;
 
   &:hover { 
-  background: transparent; 
-  color: #ffde59;
-  transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(0);
+    background: #fff; 
+    color: #000;
   }
 
   &:focus-visible {
-    outline: 2px solid #111827;
-    outline-offset: 3px;
+    outline: 2px solid #000;
+    outline-offset: 2px;
   }
 `;
-
-
 
 export default function ClosingCTA() {
   return (
     <Wrap aria-labelledby="partner-cta">
-      <Title id="partner-cta">Let’s build together.</Title>
-      <Sub>
-        If you share our vision and can unlock capital, distribution, or expertise,
-        we’d love to collaborate on an active venture.
-      </Sub>
-      <CTA href="/partner">Partner With Us</CTA>
+      <ContentBox>
+        <Title id="partner-cta">Let’s build together.</Title>
+        <Sub>
+          If you share our vision and can unlock capital, distribution, or expertise,
+          we’d love to collaborate on an active venture.
+        </Sub>
+        <CTA href="/partner">Partner With Us</CTA>
+      </ContentBox>
     </Wrap>
   );
 }

@@ -4,153 +4,142 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 
 const Wrap = styled.main`
-  color: #0f172a;
+  color: #111;
+  font-family: 'Roboto Mono', monospace;
 `;
 
 const HeaderBand = styled.section`
-  background: #f6f7fb;
-  border-bottom: 1px solid #e5e7eb;
-  padding: clamp(56px, 7vw, 88px) 20px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #000;
+  padding: 6rem 5%;
 
   .inner {
     max-width: 1000px;
-    margin: 0 auto;
   }
 `;
 
 const Title = styled.h1`
-  margin: 0 0 12px 0;
-  font-size: clamp(32px, 4vw, 42px);
-  line-height: 1.2;
+  margin: 0 0 2rem 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 `;
 
 const Kicker = styled.p`
   margin: 0;
-  max-width: 75ch;
-  color: #475569;
-  font-size: 18px;
+  max-width: 800px;
+  color: #444;
+  font-size: 1.1rem;
   line-height: 1.7;
 `;
 
 const Body = styled.section`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(56px, 7vw, 88px) 20px;
-`;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
 
-/* ---------- Shared Bits ---------- */
+  @media (max-width: 1200px) {
+    border: none;
+  }
+`;
 
 const Section = styled.section`
-  &:not(:first-child) {
-    margin-top: clamp(40px, 6vw, 64px);
-  }
+  padding: 4rem 5%;
+  border-bottom: 1px solid #000;
 
   h2 {
-    margin: 0 0 12px 0;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.01em;
+    margin: 0 0 2rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  p,
-  li {
-    color: #334155;
-    font-size: 16px;
+  p, li {
+    font-size: 1rem;
     line-height: 1.7;
+    color: #333;
+    max-width: 700px;
+  }
+  
+  ul {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
   }
 `;
-
-const Divider = styled.hr`
-  border: 0;
-  height: 1px;
-  background: #e5e7eb;
-  margin: clamp(40px, 6vw, 64px) 0;
-`;
-
-/* ---------- Focus Areas ---------- */
 
 const AreaGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: #000; /* Creates borders via gap */
+  border: 1px solid #000;
 `;
 
 const AreaCard = styled.article`
-  background: #f8fafc;
-  border: 1px solid #e6eaf0;
-  border-radius: 14px;
-  padding: 16px 16px 14px;
-
+  background: #fff;
+  padding: 2rem;
+  
   h3 {
-    margin: 0 0 6px;
-    font-size: 16px;
-    font-weight: 700;
+    margin: 0 0 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
   }
 
   p {
     margin: 0;
-    color: #475569;
+    font-size: 0.95rem;
+    color: #555;
   }
 `;
-
-/* ---------- Operating Model ---------- */
 
 const PillList = styled.ul`
   list-style: none;
-  padding-left: 0;
-  margin: 10px 0 14px 0;
+  padding: 0;
+  margin: 0 0 2rem 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 1rem;
 
   li {
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    color: #1e293b;
-    font-size: 14px;
-    font-weight: 600;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
-`;
-
-/* ---------- CTA ---------- */
-
-const CTArow = styled.div`
-  margin-top: 16px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
 `;
 
 const CTA = styled.a`
+  display: inline-block;
+  margin-top: 2rem;
   text-decoration: none;
-  padding: 0.78rem 1.45rem;
-  border: 2px solid #ffde59;
-  border-radius: 999px;
-  font-weight: 800;
+  padding: 1rem 2rem;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  color: #111827;
-  background: #ffde59;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    transform: translateY(-2px);
-    background: #ffd944;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-  }
-
-  &:focus-visible {
-    outline: 2px solid #111827;
-    outline-offset: 3px;
+    background: #fff;
+    color: #000;
   }
 `;
-
-/* ---------- Page ---------- */
 
 export default function AboutPage() {
   return (
@@ -178,8 +167,6 @@ export default function AboutPage() {
               cultural relevance, clear customer outcomes, and disciplined rollouts.
             </p>
           </Section>
-
-          <Divider />
 
           <Section>
             <h2>Focus Areas</h2>
@@ -221,8 +208,6 @@ export default function AboutPage() {
             </AreaGrid>
           </Section>
 
-          <Divider />
-
           <Section>
             <h2>How We Build</h2>
             <PillList>
@@ -231,27 +216,23 @@ export default function AboutPage() {
               <li>Measured rollouts</li>
             </PillList>
             <ul>
-              <li>Clarity first: simple scopes, fast cycles, and rigorous prioritization.</li>
-              <li>Capital efficient: we build incrementally and scale with proof, not hype.</li>
-              <li>Partnership leverage: we collaborate where distribution, expertise, or compliance accelerate outcomes.</li>
+              <li><strong>Clarity first:</strong> simple scopes, fast cycles, and rigorous prioritization.</li>
+              <li><strong>Capital efficient:</strong> we build incrementally and scale with proof, not hype.</li>
+              <li><strong>Partnership leverage:</strong> we collaborate where distribution, expertise, or compliance accelerate outcomes.</li>
             </ul>
           </Section>
-
-          <Divider />
 
           <Section>
             <h2>Partnership Models</h2>
             <p>
               We collaborate through structures that align incentives and speed up execution:
             </p>
-            <ul>
+            <ul style={{ marginTop: '1.5rem' }}>
               <li><strong>Equity Co-Builds:</strong> shared ownership to align strategy and delivery.</li>
               <li><strong>Licensing &amp; Brand Collaborations:</strong> extend worlds, stories, and products through aligned partners.</li>
               <li><strong>Pilot Programs:</strong> scoped engagements to validate traction with real users and clear milestones.</li>
             </ul>
           </Section>
-
-          <Divider />
 
           <Section>
             <h2>Get Involved</h2>
@@ -259,9 +240,7 @@ export default function AboutPage() {
               If you share our conviction and can unlock capital, distribution, or operational leverage,
               let’s explore where we can build together.
             </p>
-            <CTArow>
-              <CTA href="/partner">Explore Partnership Models</CTA>
-            </CTArow>
+            <CTA href="/partner">Explore Partnership Models</CTA>
           </Section>
         </Body>
       </Wrap>
