@@ -1,74 +1,64 @@
-// src/pages/thank-you.js
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 import Layout from "../components/Layout";
 
-const Wrap = styled.main`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(85vh - var(--header-h, 88px));
-  padding: 40px 20px;
-  background: #f8f8f8;
+const Wrap = styled.section`
+  width: min(720px, calc(100% - 32px));
+  min-height: calc(80vh - var(--header-h));
+  margin: 0 auto;
+  padding: clamp(64px, 12vw, 120px) 0;
+  display: grid;
+  align-content: center;
 `;
 
-const ContentBox = styled.div`
-  max-width: 600px;
-  width: 100%;
-  padding: 3rem;
-  background: #fff;
-  border: 1px solid #000;
-  text-align: center;
+const Card = styled.div`
+  padding: clamp(28px, 6vw, 48px);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
 `;
 
 const Title = styled.h1`
-  font-family: 'Inter', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #000;
-  letter-spacing: -0.02em;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 0.95;
 `;
 
 const Message = styled.p`
-  font-family: 'Roboto Mono', monospace;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
-  margin-bottom: 2.5rem;
+  margin: 22px 0 30px;
+  color: var(--color-muted);
+  font-size: 1.08rem;
 `;
 
-const CTA = styled.a`
-  display: inline-block;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  border: 1px solid #000;
-  background: #000;
+const Button = styled(Link)`
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  padding: 0 18px;
+  border: 1px solid var(--color-copper);
+  background: var(--color-copper);
   color: #fff;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: #fff;
-    color: #000;
-  }
+  font-weight: 800;
+  text-decoration: none;
 `;
 
 export default function ThankYouPage() {
   return (
-    <Layout title="Thank You — The Startup Life">
+    <Layout
+      pathname="/thank-you/"
+      title="Thank You | The Startup Life"
+      description="Thank you for contacting The Startup Life."
+    >
       <Wrap>
-        <ContentBox>
-          <Title>Thank You!</Title>
+        <Card>
+          <Title>Thank you.</Title>
           <Message>
-            Your submission has been received. We’ll review it and follow up if there’s a strong fit for collaboration.
-            In the meantime, feel free to explore our ventures and ongoing projects.
+            Your submission has been received. The Startup Life will follow up by email with the
+            next step.
           </Message>
-          <CTA href="/">Back to Home</CTA>
-        </ContentBox>
+          <Button to="/">Back to Home</Button>
+        </Card>
       </Wrap>
     </Layout>
   );

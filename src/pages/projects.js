@@ -3,210 +3,151 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import { projects } from "../data/projects";
 
-const Wrap = styled.main`
-  min-height: 80vh;
-  padding-bottom: 4rem;
+const Page = styled.div`
+  background: var(--color-bg);
 `;
 
-const Header = styled.div`
-  background: #f8f8f8;
-  border-bottom: 1px solid #000;
-  padding: 6rem 5%;
+const Section = styled.section`
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(58px, 10vw, 118px) 0;
+`;
 
-  h1 {
-    font-family: 'Inter', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -0.02em;
+const Eyebrow = styled.p`
+  margin: 0 0 16px;
+  color: var(--color-copper-dark);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+`;
+
+const Title = styled.h1`
+  max-width: 12ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.92;
+`;
+
+const Lead = styled.p`
+  max-width: 760px;
+  margin: 30px 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1.08rem, 2vw, 1.28rem);
+`;
+
+const Grid = styled.div`
+  display: grid;
+  gap: 1px;
+  margin-top: 54px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+`;
+
+const Row = styled.article`
+  display: grid;
+  grid-template-columns: 0.85fr 1.35fr auto;
+  gap: 26px;
+  padding: clamp(24px, 4vw, 34px);
+  background: var(--color-surface);
+
+  @media (max-width: 820px) {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    line-height: 1;
   }
 
   p {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1.1rem;
-    max-width: 800px;
-    color: #444;
-    line-height: 1.6;
-    margin: 0;
+    margin: 0 0 14px;
+    color: var(--color-muted);
   }
 `;
 
-const TableContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-
-  @media (max-width: 1200px) {
-    border: none;
-  }
+const Status = styled.span`
+  display: inline-flex;
+  align-self: start;
+  padding: 8px 10px;
+  border: 1px solid rgba(184, 107, 61, 0.45);
+  color: var(--color-copper-dark);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 `;
 
-const TableRow = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 3fr 1fr;
-  padding: 2.5rem;
-  border-bottom: 1px solid #000;
-  transition: background 0.2s ease;
-  align-items: start;
+const Tags = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
 
-  &:hover {
-    background: #f9f9f9;
-  }
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .main-info {
-    h2 {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin: 0 0 0.5rem 0;
-    }
-
-    .one-liner {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.95rem;
-      color: #666;
-      line-height: 1.5;
-    }
-  }
-
-  .details {
-    padding-right: 2rem;
-    
-    .label {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      color: #222;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-
-      li {
-        font-family: 'Roboto Mono', monospace;
-        font-size: 0.85rem;
-        background: #eee;
-        padding: 0.4rem 0.8rem;
-        border-radius: 4px;
-        color: #444;
-      }
-    }
-  }
-
-  .meta {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1rem;
-
-    @media (max-width: 900px) {
-      align-items: flex-start;
-      text-align: left;
-    }
-
-    .status {
-      display: inline-block;
-      padding: 0.4rem 0.8rem;
-      border: 1px solid #000;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    a.link {
-      font-family: 'Roboto Mono', monospace;
-      color: #000;
-      text-decoration: none;
-      border-bottom: 1px solid #000;
-      padding-bottom: 2px;
-      font-size: 0.9rem;
-
-      &:hover {
-        background: #000;
-        color: #fff;
-      }
-    }
+  li {
+    padding: 7px 9px;
+    background: #f4eee7;
+    color: var(--color-muted);
+    font-size: 0.86rem;
   }
 `;
 
 export default function ProjectsPage() {
   return (
-    <Layout>
-      <Wrap>
-        <Header>
-          <h1>Venture Portfolio</h1>
-          <p>
-            Each project represents a long-term vision we’re scaling into reality.
-            We partner with those who can provide distribution, capital, compliance,
-            or specialized expertise to accelerate growth.
-          </p>
-        </Header>
+    <Layout
+      pathname="/projects/"
+      title="Ventures | The Startup Life"
+      description="Explore ventures and brands housed within The Startup Life studio portfolio."
+    >
+      <Page>
+        <Section>
+          <Eyebrow>Ventures</Eyebrow>
+          <Title>The studio portfolio.</Title>
+          <Lead>
+            The Startup Life houses multiple ventures and remains open to aligned partnerships.
+            This page is intentionally secondary to the AI training offer, but it shows the broader
+            studio context behind the work.
+          </Lead>
 
-        <TableContainer>
-          {projects.map((p) => {
-            const link = p.links && p.links[0];
+          <Grid>
+            {projects.map((project) => {
+              const link = project.links?.find((item) => item.href);
 
-            return (
-              <TableRow key={p.slug}>
-                <div className="main-info">
-                  <h2>{p.name}</h2>
-                  <p className="one-liner">{p.oneLiner}</p>
-                </div>
-
-                <div className="details">
-                  {p.currentFocus && (
-                    <div style={{ marginBottom: '1.5rem' }}>
-                      <div className="label">Current Focus</div>
-                      <p>{p.currentFocus}</p>
-                    </div>
-                  )}
-
-                  {p.seeking && p.seeking.length > 0 && (
-                    <div>
-                      <div className="label">Seeking Partners For</div>
-                      <ul>
-                        {p.seeking.map((item, i) => (
-                          <li key={i}>{item}</li>
+              return (
+                <Row key={project.slug}>
+                  <div>
+                    <h2>{project.name}</h2>
+                    <Status>{project.status}</Status>
+                  </div>
+                  <div>
+                    <p>{project.oneLiner}</p>
+                    {project.currentFocus && <p>{project.currentFocus}</p>}
+                    {project.seeking?.length > 0 && (
+                      <Tags aria-label={`${project.name} partnership interests`}>
+                        {project.seeking.map((item) => (
+                          <li key={item}>{item}</li>
                         ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-
-                <div className="meta">
-                  <span className="status">{p.status}</span>
-                  {link && link.href && (
-                    <a className="link" href={link.href} target="_blank" rel="noreferrer">
-                      Visit {link.label} &rarr;
+                      </Tags>
+                    )}
+                  </div>
+                  {link && (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">
+                      Visit {link.label}
                     </a>
                   )}
-                </div>
-              </TableRow>
-            );
-          })}
-        </TableContainer>
-      </Wrap>
+                </Row>
+              );
+            })}
+          </Grid>
+        </Section>
+      </Page>
     </Layout>
   );
 }

@@ -1,75 +1,75 @@
-// src/components/footer.js
 import React from "react";
-import styled from "styled-components";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaMedium, FaYoutube } from "react-icons/fa";
 import { Link } from "gatsby";
+import styled from "styled-components";
 
-const FooterWrapper = styled.footer`
-  background: #fff;
-  color: black;
-  padding: 3rem 1rem;
+const Wrap = styled.footer`
+  border-top: 1px solid var(--color-line);
+  background: #f4eee7;
 `;
 
-const Container = styled.div`
-  max-width: 1200px;
+const Inner = styled.div`
+  width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  padding: 34px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
   align-items: center;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
   }
 `;
 
-const Logo = styled.img`
-  height: 4rem;
+const Brand = styled.div`
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: 1.25rem;
 `;
 
-const Copyright = styled.p`
-  font-size: 0.9rem;
-  color: black;
+const FinePrint = styled.p`
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
 `;
 
-const SocialIcons = styled.ul`
-  list-style: none;
+const Links = styled.nav`
   display: flex;
-  gap: 1rem;
-  margin: 0;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  justify-content: flex-end;
+  font-size: 0.94rem;
+  font-weight: 600;
 
   a {
-    color: black;
-    font-size: 1.1rem;
-    transition: color 0.3s;
+    color: var(--color-ink);
+  }
 
-    &:hover {
-      color: #FFDE59;
-    }
+  @media (max-width: 760px) {
+    justify-content: flex-start;
   }
 `;
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <FooterWrapper>
-      <Container>
-        <Link to="/">
-          <Logo src="/assets/img/Logos/Logo-trans-bg-tsl.png" alt="The Startup Life logo" />
-        </Link>
-        <Copyright>© 2025 The Startup Life LLC. All rights reserved.</Copyright>
-        <SocialIcons>
-          <li><a href="https://facebook.com/startuplifellc" target="_blank" rel="noopener noreferrer"><FaFacebook /></a></li>
-          <li><a href="https://twitter.com/startuplifellc" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
-          <li><a href="https://instagram.com/startuplifellc" target="_blank" rel="noopener noreferrer"><FaInstagram /></a></li>
-          <li><a href="https://linkedin.com/company/thestartuplife" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a></li>
-          <li><a href="https://medium.com/@thestartuplife" target="_blank" rel="noopener noreferrer"><FaMedium /></a></li>
-          <li><a href="https://youtube.com/thestartuplife" target="_blank" rel="noopener noreferrer"><FaYoutube /></a></li>
-        </SocialIcons>
-      </Container>
-    </FooterWrapper>
+    <Wrap>
+      <Inner>
+        <div>
+          <Brand>The Startup Life</Brand>
+          <FinePrint>Copyright {new Date().getFullYear()} The Startup Life.</FinePrint>
+        </div>
+        <Links aria-label="Footer navigation">
+          <Link to="/projects/">Ventures</Link>
+          <a
+            href="http://linkedin.com/company/thestartuplife"
+            aria-label="The Startup Life on LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </Links>
+      </Inner>
+    </Wrap>
   );
-};
-
-export default Footer;
+}
