@@ -1,3 +1,5 @@
 node_modules/
 .cache/
+.gatsby-user-cache/
+.gatsby-user-config/
 public

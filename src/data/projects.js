@@ -3,14 +3,14 @@ export const projects = [
     slug: "annakiyah",
     name: "Annakiyah.com",
     oneLiner:
-      "A fantasy-forward book franchise inspired by the Libraries of Timbuktu—built for multi-format IP.",
+      "A fantasy-forward book franchise inspired by the Libraries of Timbuktu, built for multi-format IP.",
     status: "Building",
     currentFocus: "Drafting Book 1: Annakiyah and the Libraries of Timbuktu.",
     seeking: [
-      "Co-writer/ghostwriting agency",
+      "Co-writer or ghostwriting agency",
       "Developmental editor",
-      "IP/licensing advisors",
-      "Publishing & distribution partners",
+      "IP and licensing advisors",
+      "Publishing and distribution partners",
     ],
     links: [{ label: "Overview", href: "https://Annakiyah.com" }],
   },
@@ -18,10 +18,10 @@ export const projects = [
     slug: "prettypenny",
     name: "PrettyPenny.io",
     oneLiner:
-      "A consumer fintech platform that transforms everyday cashback into long-term wealth building.",
+      "A consumer fintech platform that turns everyday cashback into long-term wealth-building habits.",
     status: "Building",
     currentFocus:
-      "Private beta: merchant offers, cashback wallet, and investor education; refining compliance and payout flows.",
+      "Private beta: merchant offers, cashback wallet, investor education, compliance, and payout flows.",
     seeking: [
       "Merchant offer partners",
       "Fintech sponsorships",
@@ -31,12 +31,23 @@ export const projects = [
     links: [{ label: "Overview", href: "https://PrettyPenny.io" }],
   },
   {
+    slug: "konekte",
+    name: "Konekte",
+    oneLiner:
+      "A connection-focused venture in development inside The Startup Life portfolio.",
+    status: "Live",
+    currentFocus: "Refining the concept, audience, and first launch surface.",
+    seeking: ["Strategic partners", "Pilot collaborators", "Launch advisors"],
+    links: [{ label: "Website", href: "https://konekte.xyz" }],
+  },
+  {
     slug: "stealth-project",
     name: "Stealth Project",
     oneLiner:
-      "Hands-on career shadowing for teens, powered by parents and schools",
+      "Hands-on career shadowing for teens, powered by parents, schools, and community partners.",
     status: "Exploring",
-    currentFocus: "Validating interest, piloting with community partners, and developing an early prototype.",
+    currentFocus:
+      "Validating interest, piloting with community partners, and developing an early prototype.",
     seeking: ["Full-stack co-builder", "Community lead", "Pilot sponsor"],
     links: [{ label: "Concept", href: "" }],
   },
@@ -44,9 +55,9 @@ export const projects = [
     slug: "haitians-in-tech",
     name: "HaitiansinTech.com",
     oneLiner:
-      "Open-source civic tech + ecosystem building for the Haitian diaspora.",
+      "Open-source civic tech and ecosystem building for the Haitian diaspora.",
     status: "Live",
-    currentFocus: "Programs, partnerships, sponsorships.",
+    currentFocus: "Programs, partnerships, and sponsorships.",
     seeking: [
       "Philanthropic sponsors",
       "Corporate partners",
@@ -59,13 +70,13 @@ export const projects = [
     slug: "medicalbae",
     name: "MedicalBae.com",
     oneLiner:
-      "Lifestyle & apparel celebrating medical professionals of color—limited drops, collabs, and community.",
+      "Lifestyle and apparel celebrating medical professionals of color through limited drops, collaborations, and community.",
     status: "Live",
     currentFocus:
-      "Scaling merch designs, expanding into storytelling, and growing community partnerships.",
+      "Scaling merch designs, expanding storytelling, and growing community partnerships.",
     seeking: [
-      "Creators & collaborators",
-      "Retail/merchandising partners",
+      "Creators and collaborators",
+      "Retail and merchandising partners",
       "Community sponsors",
     ],
     links: [{ label: "Shop", href: "https://MedicalBae.com" }],
@@ -74,32 +85,31 @@ export const projects = [
     slug: "sipnswoon",
     name: "SipNSwoon.com",
     oneLiner:
-      "Romance-only bookstore concept—starting as a premium subscription/preorder box and pop-ups.",
+      "A romance-only bookstore concept starting with a premium subscription box, preorders, and pop-ups.",
     status: "Live",
-    currentFocus:
-      "Supplier/licensing relationships, box pilot, venue partnerships.",
+    currentFocus: "Supplier relationships, licensing relationships, box pilot, and venue partnerships.",
     seeking: [
-      "Publishers/rights teams",
+      "Publishers and rights teams",
       "Special-edition licensors",
-      "Café/venue partners",
+      "Cafe and venue partners",
       "Creators for co-branded drops",
     ],
-    links: [{ label: "Concept", href: "https://SipNSwoon.com" }],
+    links: [{ label: "Website", href: "https://SipNSwoon.com" }],
   },
   {
-  slug: "tech-guild",
-  name: "TechGuildHQ.com",
-  oneLiner:
-    "A children’s book series that makes STEM and digital literacy fun, taking kids 8+ on adventures through the innovations that power our world, —built as multi-format IP.",
-  status: "Building",
-  currentFocus:
-    "Outlining book arcs and piloting educational tie-ins around coding, robotics, and digital literacy.",
-  seeking: [
-    "Children’s publishing partners",
-    "Illustrators and animators",
-    "STEM education sponsors",
-    "Merchandising/licensing collaborators",
-  ],
-  links: [{ label: "Overview", href: "https://TechGuildHQ.com" }],
-},
+    slug: "tech-guild",
+    name: "TechGuildHQ.com",
+    oneLiner:
+      "A children's book series that makes STEM and digital literacy fun for kids 8+, built as multi-format IP.",
+    status: "Building",
+    currentFocus:
+      "Outlining book arcs and piloting educational tie-ins around coding, robotics, and digital literacy.",
+    seeking: [
+      "Children's publishing partners",
+      "Illustrators and animators",
+      "STEM education sponsors",
+      "Merchandising and licensing collaborators",
+    ],
+    links: [{ label: "Overview", href: "https://TechGuildHQ.com" }],
+  },
 ];
